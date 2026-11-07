@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tabdesk</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#desk">Skip to dashboard</a>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">▌</span>
+      <h1>tabdesk</h1>
+      <span class="brand-version">v0.1</span>
+    </div>
+    <div class="topbar-meta">
+      <span id="clock" class="clock"></span>
+      <button id="refresh-button" class="btn btn-ghost" type="button">refresh</button>
+    </div>
+  </header>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <div id="banner" class="banner" role="alert" hidden></div>
+
+  <main id="desk" class="desk" aria-label="Tabdesk dashboard">
+    <noscript>
+      <p class="panel-note">Tabdesk needs JavaScript. Firefox has it built in; check your settings.</p>
+    </noscript>
+  </main>
+
+  <footer class="footer">
+    <span>stored locally in this Firefox profile · unencrypted</span>
+    <span>watch statuses are cached observations, not live guarantees</span>
+  </footer>
+
+  <dialog id="widget-dialog" class="dialog" aria-labelledby="widget-dialog-title">
+    <form id="widget-form" class="dialog-form" novalidate>
+      <h2 id="widget-dialog-title">New widget</h2>
+      <p id="widget-dialog-hint" class="dialog-hint"></p>
+
+      <label class="field">
+        <span>title</span>
+        <input id="widget-title" name="title" type="text" maxlength="80" autocomplete="off" required>
+      </label>
+
+      <label id="widget-kind-field" class="field">
+        <span>kind</span>
+        <select id="widget-kind" name="kind">
+          <option value="checklist">checklist</option>
+          <option value="notes">notes</option>
+          <option value="links">quick links</option>
+          <option value="search">YouTube search</option>
+          <option value="watch">product watch</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span>panel</span>
+        <select id="widget-group" name="group"></select>
+      </label>
+
+      <p id="widget-error" class="form-error" role="alert" hidden></p>
+
+      <menu class="dialog-actions">
+        <button type="button" class="btn btn-ghost" data-close-dialog="widget-dialog">cancel</button>
+        <button type="submit" class="btn btn-accent">save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="confirm-dialog" class="dialog" aria-labelledby="confirm-title">
+    <form id="confirm-form" class="dialog-form" novalidate>
+      <h2 id="confirm-title">Confirm</h2>
+      <p id="confirm-message" class="dialog-hint"></p>
+      <p id="confirm-error" class="form-error" role="alert" hidden></p>
+      <menu class="dialog-actions">
+        <button type="button" class="btn btn-ghost" data-close-dialog="confirm-dialog">cancel</button>
+        <button id="confirm-submit" type="submit" class="btn btn-danger">confirm</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script type="module" src="newtab.js"></script>
+</body>
+</html>

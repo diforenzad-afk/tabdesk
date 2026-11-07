@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Tabdesk",
+  "version": "0.1.0",
+  "description": "Minimal terminal-styled new-tab dashboard: checklists, notes, quick links, YouTube search and product watches.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tabdesk@example.local",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+  "optional_host_permissions": [
+    "https://*/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'; base-uri 'none'"
+  }
+}

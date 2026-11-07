@@ -1,0 +1,21 @@
+{
+  "name": "tabdesk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal terminal-styled Firefox new-tab dashboard: checklists, notes, quick links and product availability watches.",
+  "scripts": {
+    "test": "node --test tests/",
+    "lint": "eslint .",
+    "lint:ext": "web-ext lint --source-dir extension",
+    "package:unsigned": "npm run check:manifest && npm run lint:ext && web-ext build --source-dir extension --artifacts-dir web-ext-artifacts --filename 'tabdesk-{version}-unsigned.zip' --overwrite-dest",
+    "check:manifest": "node scripts/check-manifest.mjs",
+    "check": "npm run lint && npm run test && npm run check:manifest && npm run lint:ext",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.1",
+    "playwright": "^1.57.0",
+    "web-ext": "^8.10.0"
+  }
+}
